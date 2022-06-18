@@ -1,0 +1,679 @@
+[
+    {
+        "id": "40c6af4ce54c57e8",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "3a7b9bbe0f42b0a5",
+        "type": "tab",
+        "label": "Flow 2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "06e244b3046a1fad",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "38be9cade9a51e6c",
+        "type": "ui_group",
+        "name": "btns",
+        "tab": "",
+        "order": 1,
+        "disp": false,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "86f182026b2617bb",
+        "type": "ui_group",
+        "name": "btns",
+        "tab": "168a33d1c569f07e",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "168a33d1c569f07e",
+        "type": "ui_tab",
+        "name": "control panel",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "a91b4a02f3e461be",
+        "type": "ui_tab",
+        "name": "indicators",
+        "icon": "dashboard",
+        "order": 2,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "432e4287dd54e7ba",
+        "type": "ui_group",
+        "name": "indicator",
+        "tab": "a91b4a02f3e461be",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "f81f2d1e69e1336f",
+        "type": "file in",
+        "z": "3a7b9bbe0f42b0a5",
+        "name": "",
+        "filename": "/home/pi/Desktop/image/picpic",
+        "format": "",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 350,
+        "y": 40,
+        "wires": [
+            [
+                "ef8737c87a2de43e"
+            ]
+        ]
+    },
+    {
+        "id": "3bc1aac50abaa6c6",
+        "type": "ui_template",
+        "z": "3a7b9bbe0f42b0a5",
+        "group": "86f182026b2617bb",
+        "name": "Display image",
+        "order": 1,
+        "width": "6",
+        "height": "6",
+        "format": "<!DOCTYPE html>\n<html>\n<style>\n    .img {\n        border: 8px solid #000;\n        border-radius: 8px;\n        padding: 2px;\n        width: 260px;\n    }\n</style>\n\n<center>\n    <table>\n        <tr>\n            <!-- Row 1 -->\n            <td style=\"text-align: center\"><img src=\"data:image/jpg;base64,{{msg.payload}}\" class=img /></td>\n        </tr>\n    </table>\n</center>\n</html>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": false,
+        "templateScope": "local",
+        "className": "",
+        "x": 760,
+        "y": 40,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "ef8737c87a2de43e",
+        "type": "base64",
+        "z": "3a7b9bbe0f42b0a5",
+        "name": "",
+        "action": "str",
+        "property": "payload",
+        "x": 580,
+        "y": 40,
+        "wires": [
+            [
+                "3bc1aac50abaa6c6"
+            ]
+        ]
+    },
+    {
+        "id": "212433d4cb0608ad",
+        "type": "camerapi-takephoto",
+        "z": "3a7b9bbe0f42b0a5",
+        "filemode": "1",
+        "filename": "pic",
+        "filedefpath": "0",
+        "filepath": "/home/pi/Desktop/image/pic",
+        "fileformat": "jpeg",
+        "resolution": "3",
+        "rotation": "0",
+        "fliph": "0",
+        "flipv": "0",
+        "brightness": "50",
+        "contrast": "0",
+        "sharpness": "0",
+        "quality": "80",
+        "imageeffect": "none",
+        "exposuremode": "auto",
+        "iso": "0",
+        "agcwait": "1.0",
+        "led": "0",
+        "awb": "auto",
+        "name": "",
+        "x": 280,
+        "y": 120,
+        "wires": [
+            [
+                "f81f2d1e69e1336f"
+            ]
+        ]
+    },
+    {
+        "id": "8c5e6060df3d803d",
+        "type": "ui_button",
+        "z": "3a7b9bbe0f42b0a5",
+        "name": "",
+        "group": "86f182026b2617bb",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "photo",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 90,
+        "y": 60,
+        "wires": [
+            [
+                "f81f2d1e69e1336f",
+                "212433d4cb0608ad"
+            ]
+        ]
+    },
+    {
+        "id": "21e3f346fb2b4d88",
+        "type": "pythonshell in",
+        "z": "3a7b9bbe0f42b0a5",
+        "name": "pythonscript",
+        "pyfile": "/home/pi/Desktop/picarxandnodred/pythonwithnodered.py",
+        "virtualenv": "",
+        "continuous": false,
+        "stdInData": false,
+        "x": 550,
+        "y": 140,
+        "wires": [
+            [
+                "6e551f45d772aa82"
+            ]
+        ]
+    },
+    {
+        "id": "6e551f45d772aa82",
+        "type": "debug",
+        "z": "3a7b9bbe0f42b0a5",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 770,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "ad003a4413b45b8d",
+        "type": "ui_switch",
+        "z": "3a7b9bbe0f42b0a5",
+        "name": "",
+        "label": "forward",
+        "tooltip": "",
+        "group": "86f182026b2617bb",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "f",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "s",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 110,
+        "y": 180,
+        "wires": [
+            [
+                "21e3f346fb2b4d88"
+            ]
+        ]
+    },
+    {
+        "id": "3ebda6100bf8dafe",
+        "type": "ui_switch",
+        "z": "3a7b9bbe0f42b0a5",
+        "name": "",
+        "label": "backward",
+        "tooltip": "",
+        "group": "86f182026b2617bb",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "b",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "s",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 120,
+        "y": 220,
+        "wires": [
+            [
+                "21e3f346fb2b4d88"
+            ]
+        ]
+    },
+    {
+        "id": "f0a87d4c453aa871",
+        "type": "ui_switch",
+        "z": "3a7b9bbe0f42b0a5",
+        "name": "",
+        "label": "go right",
+        "tooltip": "",
+        "group": "86f182026b2617bb",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "gr",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "s",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 120,
+        "y": 260,
+        "wires": [
+            [
+                "21e3f346fb2b4d88"
+            ]
+        ]
+    },
+    {
+        "id": "bd329e11b52b2ab9",
+        "type": "ui_switch",
+        "z": "3a7b9bbe0f42b0a5",
+        "name": "",
+        "label": "go left",
+        "tooltip": "",
+        "group": "86f182026b2617bb",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "decouple": "false",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "gl",
+        "onvalueType": "str",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "s",
+        "offvalueType": "str",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 110,
+        "y": 300,
+        "wires": [
+            [
+                "21e3f346fb2b4d88"
+            ]
+        ]
+    },
+    {
+        "id": "b4e374ae79c46960",
+        "type": "ui_button",
+        "z": "3a7b9bbe0f42b0a5",
+        "name": "",
+        "group": "86f182026b2617bb",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "see up",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "su",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 110,
+        "y": 340,
+        "wires": [
+            [
+                "21e3f346fb2b4d88"
+            ]
+        ]
+    },
+    {
+        "id": "3121977c0fac3ab4",
+        "type": "ui_button",
+        "z": "3a7b9bbe0f42b0a5",
+        "name": "",
+        "group": "86f182026b2617bb",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "see down",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "sd",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 120,
+        "y": 380,
+        "wires": [
+            [
+                "21e3f346fb2b4d88"
+            ]
+        ]
+    },
+    {
+        "id": "7452789dfc82e6b4",
+        "type": "ui_button",
+        "z": "3a7b9bbe0f42b0a5",
+        "name": "",
+        "group": "86f182026b2617bb",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "see right",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "sr",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 120,
+        "y": 420,
+        "wires": [
+            [
+                "21e3f346fb2b4d88"
+            ]
+        ]
+    },
+    {
+        "id": "8ef2dbfad22c827c",
+        "type": "ui_button",
+        "z": "3a7b9bbe0f42b0a5",
+        "name": "",
+        "group": "86f182026b2617bb",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "see left",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "sl",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 120,
+        "y": 460,
+        "wires": [
+            [
+                "21e3f346fb2b4d88"
+            ]
+        ]
+    },
+    {
+        "id": "a9b23de63da7fcdd",
+        "type": "ui_button",
+        "z": "3a7b9bbe0f42b0a5",
+        "name": "",
+        "group": "86f182026b2617bb",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "say something",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "say",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 140,
+        "y": 500,
+        "wires": [
+            [
+                "21e3f346fb2b4d88"
+            ]
+        ]
+    },
+    {
+        "id": "d9004433ff38d7ce",
+        "type": "ui_button",
+        "z": "3a7b9bbe0f42b0a5",
+        "name": "",
+        "group": "86f182026b2617bb",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "stop",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "s",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 130,
+        "y": 540,
+        "wires": [
+            [
+                "21e3f346fb2b4d88"
+            ]
+        ]
+    },
+    {
+        "id": "106a6e047fa6a6c0",
+        "type": "pythonshell in",
+        "z": "3a7b9bbe0f42b0a5",
+        "name": "pythonscript",
+        "pyfile": "/home/pi/Desktop/picarxandnodred/pythonwithnodered.py",
+        "virtualenv": "",
+        "continuous": false,
+        "stdInData": false,
+        "x": 550,
+        "y": 140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d781e32b81592bdb",
+        "type": "pythonshell in",
+        "z": "3a7b9bbe0f42b0a5",
+        "name": "pythonscript",
+        "pyfile": "/home/pi/Desktop/picarxandnodred/pythonwithnodered.py",
+        "virtualenv": "",
+        "continuous": false,
+        "stdInData": false,
+        "x": 550,
+        "y": 140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "98761ebf5cb9b2f1",
+        "type": "pythonshell in",
+        "z": "3a7b9bbe0f42b0a5",
+        "name": "pythonscript",
+        "pyfile": "/home/pi/Desktop/picarxandnodred/pythonwithnodered.py",
+        "virtualenv": "",
+        "continuous": false,
+        "stdInData": false,
+        "x": 550,
+        "y": 140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "7cca8beab299199d",
+        "type": "pythonshell in",
+        "z": "3a7b9bbe0f42b0a5",
+        "name": "pythonscript",
+        "pyfile": "/home/pi/Desktop/picarxandnodred/pythonwithnodered.py",
+        "virtualenv": "",
+        "continuous": false,
+        "stdInData": false,
+        "x": 550,
+        "y": 140,
+        "wires": [
+            []
+        ]
+    }
+]
